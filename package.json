@@ -1,8 +1,8 @@
 {
   "name": "workshop_example_app",
   "version": "1.0.0",
-  "main": "index.js","scripts": {
-    "start": "node index.js"
+  "main": "server.js","scripts": {
+    "start": "node server.js"
   },
   "repository": "https://github.com/WarhamsterBoo/workshop_example_app.git",
   "author": "WarhamsterBoo <warhamsterboo@gmail.com>",

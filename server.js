@@ -1,5 +1,6 @@
 const express = require("express");
 const PORT = 5000;
+const HOST = '0.0.0.0';
 
 const app = express();
 
@@ -8,5 +9,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`Example app listening at http://localhost:${PORT}`)
+    console.log(`Example app listening at http://${HOST}:${PORT}`)
 })
