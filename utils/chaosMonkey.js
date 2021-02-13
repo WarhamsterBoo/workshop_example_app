@@ -1,4 +1,4 @@
-const random = require('./random');
+const { random } = require('.');
 
 const modes = ['none', 'random500']
 let currentMode = 'none';

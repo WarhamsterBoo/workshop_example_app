@@ -1,8 +1,8 @@
 const fetch = require('node-fetch');
-const random = require('../utils/random');
+const { random } = require('../utils');
 
-const HOST='localhost';
-const PORT=5000;
+const HOST = 'localhost';
+const PORT = 5000;
 const cities = ['Moscow', 'Paris', 'Beijing', 'Washington'];
 const periods = ['today', 'tomorrow', 'next3days'];
 let currentRequests = 0;

@@ -9,6 +9,7 @@ router.get('/monkeyMode/:mode', (req, res) => {
     }
 
     chaosMonkey.selectMonkeyMode(mode);
+    
     res.status(200).send(`Chaos monkey now works in ${mode} mode.`);
 });
 
