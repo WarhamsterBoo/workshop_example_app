@@ -4,6 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "load": "node ./utils/load.js",
     "build": "docker build -t workshop_example_app ."
   },
   "repository": "https://github.com/WarhamsterBoo/workshop_example_app.git",
@@ -11,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
     "prom-client": "^13.1.0",
     "winston": "^3.3.3",
     "winston-elasticsearch": "^0.12.3"

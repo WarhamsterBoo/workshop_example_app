@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const logger = require('../logger');
+const random = require('../utils/random');
 
 router.get('/:city/today', (req, res) => {
     const period = 'today';
@@ -73,10 +74,6 @@ const addDays = (date, days) => {
     return resDate;
 }
 
-const randomTemperature = () => {
-    const MIN_TEMPERATURE = -273;
-    const MAX_TEMPERATURE = 1000;
-    return MIN_TEMPERATURE + Math.floor((MAX_TEMPERATURE - MIN_TEMPERATURE) * Math.random());
-}
+const randomTemperature = () => random(-273, 1000);
 
 module.exports = router;
