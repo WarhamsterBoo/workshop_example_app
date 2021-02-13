@@ -1,44 +1,67 @@
-var router = require('express').Router();
+const router = require('express').Router();
+const logger = require('../logger');
 
 router.get('/:city/today', (req, res) => {
+    const period = 'today';
+    const city = req.params.city;
+    logger.log({
+        level: "info",
+        period,
+        city,
+        message: `weather forecast for ${period} was called for city ${city}`
+    });
     const today = new Date();
+
     res.json({
-        city: req.params.city,
+        city: city,
         forecast: [{
             date: today,
-            city: req.params.city,
             temperature: randomTemperature()
         }]
     });
 });
 
 router.get('/:city/tomorrow', (req, res) => {
+    const period = 'tomorrow';
+    const city = req.params.city;
+    logger.log({
+        level: "info",
+        period,
+        city,
+        message: `weather forecast for ${period} was called for city ${city}`
+    });
     const today = new Date();
+
     res.json({
-        city: req.params.city,
+        city: city,
         forecast: [{
             date: addDays(today, 1),
-            city: req.params.city,
             temperature: randomTemperature()
         }]
     });
 });
 
 router.get('/:city/next3days', (req, res) => {
+    const period = 'next3days';
+    const city = req.params.city;
+    logger.log({
+        level: "info",
+        period,
+        city,
+        message: `weather forecast for ${period} was called for city ${city}`
+    });
     const today = new Date();
+
     res.json({
-        city: req.params.city,
+        city: city,
         forecast: [{
             date: addDays(today, 1),
-            city: req.params.city,
             temperature: randomTemperature()
         }, {
             date: addDays(today, 2),
-            city: req.params.city,
             temperature: randomTemperature()
         }, {
             date: addDays(today, 3),
-            city: req.params.city,
             temperature: randomTemperature()
         }]
     });
