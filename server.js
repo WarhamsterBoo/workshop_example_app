@@ -6,10 +6,6 @@ const HOST = process.env.HOST || 'localhost';
 
 const app = express();
 
-app.get('/', (_, res) => {
-    res.send('Hello World!')
-})
-
 app.use(require('./routes'));
 
 promClient.collectDefaultMetrics();

@@ -2,6 +2,13 @@ const router = require('express').Router();
 const logger = require('../logger');
 const random = require('../utils/random');
 
+const addDays = (date, days) => {
+    const resDate = new Date();
+    resDate.setDate(date.getDate() + days);
+    return resDate;
+}
+const randomTemperature = () => random(-273, 1000);
+
 router.get('/:city/today', (req, res) => {
     const period = 'today';
     const city = req.params.city;
@@ -67,13 +74,5 @@ router.get('/:city/next3days', (req, res) => {
         }]
     });
 });
-
-const addDays = (date, days) => {
-    const resDate = new Date();
-    resDate.setDate(date.getDate() + days);
-    return resDate;
-}
-
-const randomTemperature = () => random(-273, 1000);
 
 module.exports = router;
