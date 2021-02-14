@@ -11,7 +11,9 @@ router.get('/:city/today', (req, res) => {
         level: "info",
         period,
         city,
-        message: `weather forecast for ${period} was called for city ${city}`
+        message: `weather forecast for ${period} was called for city ${city}`,
+        url: req.url,
+        method: req.method
     });
     const today = new Date();
 
@@ -31,7 +33,9 @@ router.get('/:city/tomorrow', (req, res) => {
         level: "info",
         period,
         city,
-        message: `weather forecast for ${period} was called for city ${city}`
+        message: `weather forecast for ${period} was called for city ${city}`,
+        url: req.url,
+        method: req.method
     });
     const today = new Date();
 
@@ -51,7 +55,9 @@ router.get('/:city/next3days', (req, res) => {
         level: "info",
         period,
         city,
-        message: `weather forecast for ${period} was called for city ${city}`
+        message: `weather forecast for ${period} was called for city ${city}`,
+        url: req.url,
+        method: req.method
     });
     const today = new Date();
 

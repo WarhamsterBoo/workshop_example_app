@@ -6,7 +6,7 @@ let currentMode = 'none';
 const unleashMonkey = (_, res, next) => {
     if (currentMode != 'none') {
         if (random(0, 2) == 0) {
-            return res.status(500).send('Something is broken!');
+            throw new Error("Chaos monkey said that you shall not pass!");
         }
     }
 
