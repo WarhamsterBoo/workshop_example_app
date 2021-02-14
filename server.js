@@ -17,7 +17,6 @@ app.use('/weatherforecast', require('./middlewares/chaosMonkey').unleash);
 app.use(require('./routes'));
 
 app.use((err, req, _, next) => {
-    console.log("handling errors");
     logger.log({
         level: "error",
         method: req.method,
