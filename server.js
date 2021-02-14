@@ -6,10 +6,12 @@ const HOST = process.env.HOST || 'localhost';
 
 const app = express();
 
+app.use(require('./middlewares/performance'));
 app.use(require('./metrics'));
 app.use(require('./routes'));
 
 app.use((err, req, _, next) => {
+    console.log("handling errors");
     logger.log({
         level: "error",
         method: req.method,
