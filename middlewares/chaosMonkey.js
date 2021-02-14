@@ -29,7 +29,7 @@ router.use((_, __, next) => {
 });
 
 module.exports = {
-    router,
+    unleash: router,
     availableModes,
     selectMode,
 };

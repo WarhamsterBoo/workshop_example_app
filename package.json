@@ -1,11 +1,12 @@
 {
   "name": "workshop_example_app",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "load": "node ./tools/load.js",
-    "build": "docker build -t workshop_example_app ."
+    "build": "docker build -t warhamsterboo/workshop_example_app:%npm_package_version% -t warhamsterboo/workshop_example_app:latest .",
+    "push": "docker push warhamsterboo/workshop_example_app --all-tags"
   },
   "repository": "https://github.com/WarhamsterBoo/workshop_example_app.git",
   "author": "WarhamsterBoo <warhamsterboo@gmail.com>",

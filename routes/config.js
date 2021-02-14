@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const chaosMonkey = require('../middlewares/unleashChaosMonkey');
+const chaosMonkey = require('../middlewares/chaosMonkey');
 
 router.get('/monkeyMode/:mode', (req, res) => {
     const mode = req.params.mode;

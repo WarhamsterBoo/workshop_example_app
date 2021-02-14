@@ -13,7 +13,7 @@ app.use(promMid({
     requestDurationBuckets: [0.1, 0.5, 1, 1.5],
     prefix: 'workshop_example_app_'
 }));
-app.use('/weatherforecast', require('./middlewares/unleashChaosMonkey').router);
+app.use('/weatherforecast', require('./middlewares/chaosMonkey').unleash);
 app.use(require('./routes'));
 
 app.use((err, req, _, next) => {
