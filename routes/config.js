@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const chaosMonkey = require('../utils/chaosMonkey');
+const chaosMonkey = require('../middlewares/unleashChaosMonkey');
 
 router.get('/monkeyMode/:mode', (req, res) => {
     const mode = req.params.mode;
@@ -8,7 +8,7 @@ router.get('/monkeyMode/:mode', (req, res) => {
         return res.status(500).send(`Chaos monkey mode ${mode} is not supported.`);
     }
 
-    chaosMonkey.selectMonkeyMode(mode);
+    chaosMonkey.selectMode(mode);
     
     res.status(200).send(`Chaos monkey now works in ${mode} mode.`);
 });

@@ -7,6 +7,7 @@ const HOST = process.env.HOST || 'localhost';
 const app = express();
 
 app.use(require('./middlewares/performance'));
+app.use('/weatherforecast', require('./middlewares/unleashChaosMonkey').router);
 app.use(require('./routes'));
 
 app.use((err, req, _, next) => {
