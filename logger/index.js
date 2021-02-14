@@ -22,6 +22,7 @@ if (useElastic) {
 }
 
 const logger = winston.createLogger({
+    defaultMeta: { host: process.env.INSTANCE || "localhost:5000" },
     transports
 });
 
