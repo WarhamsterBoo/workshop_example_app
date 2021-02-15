@@ -1,14 +1,15 @@
 const router = require('express').Router();
-const { random } = require('../utils');
+const { random, waitFor } = require('../utils');
 
-const modes = ['none', 'random500', 'random400'];
+const modes = ['none', 'random500', 'random400', 'randomDelay'];
+const availableDelays = [0, 0.1, 0.5, 1, 2, 3, 5];
 let currentMode = 'none';
 
 const selectMode = (mode) => currentMode = mode;
 
 const availableModes = () => modes;
 
-router.use((_, __, next) => {
+router.use(async (_, __, next) => {
     switch (currentMode) {
         case 'random500':
             if (random(0, 2) == 0) {
@@ -21,6 +22,9 @@ router.use((_, __, next) => {
                 error.statusCode = 400;
                 return next(error);
             }
+            break;
+        case 'randomDelay':
+            await waitFor(availableDelays[random(0 , availableDelays.length)] * 1000);
             break;
         default:
             break;

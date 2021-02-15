@@ -11,7 +11,10 @@ const addDays = (date, days) => {
     return resDate;
 }
 
+const waitFor = ms => new Promise(res => setTimeout(res, ms));
+
 module.exports = {
     random,
-    addDays
+    addDays,
+    waitFor
 };
