@@ -4,10 +4,10 @@ const { random, addDays } = require('../utils');
 
 const randomTemperature = () => random(-273, 1000);
 
-router.get('/:city/today', (req, res) => {
+router.get('/today', (req, res) => {
     const today = new Date();
     const period = 'today';
-    const city = req.params.city;
+    const city = req.query.city;
     const forecast = [{
         date: today,
         temperature: randomTemperature()
@@ -29,10 +29,10 @@ router.get('/:city/today', (req, res) => {
     });
 });
 
-router.get('/:city/tomorrow', (req, res) => {
+router.get('/tomorrow', (req, res) => {
     const today = new Date();
     const period = 'tomorrow';
-    const city = req.params.city;
+    const city = req.query.city;
     const forecast = [{
         date: addDays(today, 1),
         temperature: randomTemperature()
@@ -54,10 +54,10 @@ router.get('/:city/tomorrow', (req, res) => {
     });
 });
 
-router.get('/:city/next3days', (req, res) => {
+router.get('/next3days', (req, res) => {
     const today = new Date();
     const period = 'next3days';
-    const city = req.params.city;
+    const city = req.query.city;
     const forecast = [{
         date: addDays(today, 1),
         temperature: randomTemperature()

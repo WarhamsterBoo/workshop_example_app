@@ -14,7 +14,7 @@ const randomCity = () => cities[random(0, cities.length)];
 const randomPeriod = () => periods[random(0, periods.length)];
 
 const fetchEndpoint = async (host, port) => {
-    const URL = `http://${host}:${port}/weatherforecast/${randomCity()}/${randomPeriod()}`;
+    const URL = `http://${host}:${port}/weatherforecast/${randomPeriod()}?city=${randomCity()}`;
 
     await fetch(URL);
     currentRequests++;
