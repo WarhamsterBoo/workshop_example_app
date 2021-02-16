@@ -7,12 +7,12 @@ module.exports = class MetricsTransport extends Transport {
         this.logEventsCounter = new Counter({
             name: 'workshop_example_app_number_of_log_events_total',
             help: 'Number of log events',
-            labelNames: ['level', 'host']
+            labelNames: ['level']
         });
     }
 
     log(info, callback) {
-        this.logEventsCounter.inc({ level: info.level, host: info.host });
+        this.logEventsCounter.inc({ level: info.level });
 
         setImmediate(() => {
             this.emit('logged', info);
