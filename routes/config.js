@@ -9,6 +9,9 @@ router.get('/monkeyMode/:mode', (req, res) => {
     }
 
     chaosMonkey.selectMode(mode);
+    if (mode === 'randomDelay' && req.query.delays) {
+        chaosMonkey.selectAvailableDelays(req.query.delays);
+    }
     
     res.status(200).send(`Chaos monkey now works in ${mode} mode.`);
 });

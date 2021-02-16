@@ -19,7 +19,7 @@ const fetchEndpoint = async (host, port) => {
     await fetch(URL);
     currentRequests++;
 
-    if (currentRequests % 10 == 0) {
+    if (currentRequests % 10 === 0) {
         console.log(`Sent ${currentRequests} requests...`);
     }
 
