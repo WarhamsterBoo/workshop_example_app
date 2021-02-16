@@ -13,7 +13,9 @@ router.use(async (_, __, next) => {
     switch (currentMode) {
         case 'random500':
             if (random(0, 2) == 0) {
-                throw new Error("Chaos monkey says that you shall not pass!");
+                const error = new Error("Chaos monkey says that you shall not pass!");
+                error.statusCode = 500;
+                return next(error);
             }
             break;
         case 'random400':
