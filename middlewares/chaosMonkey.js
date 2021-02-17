@@ -22,13 +22,13 @@ router.use(async (_, __, next) => {
     if (tossACoin()) {
         switch (currentMode) {
             case 'random500':
-                const error = new Error("Chaos monkey says that you shall not pass!");
-                error.statusCode = 500;
-                return next(error);
+                const error500 = new Error("Chaos monkey says that you shall not pass!");
+                error500.statusCode = 500;
+                return next(error500);
             case 'random400':
-                const error = new Error("Chaos monkey thinks that you said something silly!");
-                error.statusCode = 400;
-                return next(error);
+                const error400 = new Error("Chaos monkey thinks that you said something silly!");
+                error400.statusCode = 400;
+                return next(error400);
             case 'randomDelay':
                 logger.log({
                     level: "warning",
