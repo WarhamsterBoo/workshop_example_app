@@ -6,7 +6,8 @@
     "start": "node server.js",
     "load": "node ./tools/load.js",
     "build": "docker build -t warhamsterboo/workshop_example_app:%npm_package_version% -t warhamsterboo/workshop_example_app:latest .",
-    "push": "docker push warhamsterboo/workshop_example_app --all-tags"
+    "push": "docker push warhamsterboo/workshop_example_app --all-tags",
+    "buildnpush": "yarn build && yarn push"
   },
   "repository": "https://github.com/WarhamsterBoo/workshop_example_app.git",
   "author": "WarhamsterBoo <warhamsterboo@gmail.com>",
