@@ -6,10 +6,11 @@ const PORT_0 = 5000;
 const PORT_1 = 5001;
 const cities = ['Moscow', 'Paris', 'Beijing', 'Washington'];
 const periods = ['today', 'tomorrow', 'next3days'];
+const availableDelays = [50, 100, 150];
 let currentRequests = 0;
 
 const waitFor = ms => new Promise(res => setTimeout(res, ms));
-const randomDelay = () => random(50, 250);
+const randomDelay = () => availableDelays[random(0, availableDelays.length)];
 const randomCity = () => cities[random(0, cities.length)];
 const randomPeriod = () => periods[random(0, periods.length)];
 

@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { random, waitFor } = require('../utils');
+const logger = require('../logger');
 
-const modes = ['none', 'random500', 'random400', 'randomDelay'];
+const modes = ['none', 'random500', 'random400', 'randomDelay', 'randomErrors'];
 const defaultDelays = [0, 0.1, 0.5, 1, 2, 3, 5];
 let availableDelays = defaultDelays;
 let currentMode = 'none';
@@ -14,7 +15,7 @@ const selectAvailableDelays = (delays) => {
     } catch {
         availableDelays = defaultDelays;
     }
-} 
+}
 
 const availableModes = () => modes;
 
@@ -36,11 +37,16 @@ router.use(async (_, __, next) => {
             break;
         case 'randomDelay':
             if (random(0, 2) === 0) {
-                await waitFor(availableDelays[random(0 , availableDelays.length)] * 1000);
+                await waitFor(availableDelays[random(0, availableDelays.length)] * 1000);
             }
             break;
-        default:
-            break;
+        case 'randomErrors':
+            if (random(0, 2) === 0) {
+                logger.log({
+                    level: "error",
+                    message: `Chaos monkey insists that something went wrong!`
+                });
+            }
     }
     next();
 });
